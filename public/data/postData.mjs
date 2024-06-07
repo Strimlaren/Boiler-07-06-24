@@ -3,7 +3,7 @@ export let postData = [
     id: 1,
     postedBy: "Mirza",
     avatarLink:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fvillains%2Fimages%2Fd%2Fd0%2FTheShredder.png%2Frevision%2Flatest%3Fcb%3D20190706015629&f=1&nofb=1&ipt=8dcf99a47b28a4b3868a77643a8e4af85f3443afd153dac069e5e359b6f33e72&ipo=images",
+      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
     postedDate: "2024-06-07",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
@@ -27,7 +27,7 @@ export let postData = [
     id: 2,
     postedBy: "Mirza",
     avatarLink:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fvillains%2Fimages%2Fd%2Fd0%2FTheShredder.png%2Frevision%2Flatest%3Fcb%3D20190706015629&f=1&nofb=1&ipt=8dcf99a47b28a4b3868a77643a8e4af85f3443afd153dac069e5e359b6f33e72&ipo=images",
+      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
     postedDate: "2024-06-07",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
@@ -37,13 +37,13 @@ export let postData = [
         id: 1,
         postedBy: "Jason",
         postedDate: "2024-06-01",
-        commentContent: "Va håller du med ditt sepe",
+        commentContent: "Va håller du på med ditt sepe",
       },
       {
         id: 2,
         postedBy: "Jason",
         postedDate: "2024-06-01",
-        commentContent: "Va håller du med ditt sepe",
+        commentContent: "Va säger du ditt sepe",
       },
     ],
   },
@@ -51,7 +51,7 @@ export let postData = [
     id: 3,
     postedBy: "Mirza",
     avatarLink:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fvillains%2Fimages%2Fd%2Fd0%2FTheShredder.png%2Frevision%2Flatest%3Fcb%3D20190706015629&f=1&nofb=1&ipt=8dcf99a47b28a4b3868a77643a8e4af85f3443afd153dac069e5e359b6f33e72&ipo=images",
+      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
     postedDate: "2024-06-07",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,

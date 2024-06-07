@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
 *,
 ::before,
 ::after {
@@ -5,22 +7,22 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
+  font-family: "Dosis", sans-serif;
 }
 
-body,
-html {
+:root {
+  --primaryColor: rgba(0, 170, 255, 0.568);
+  --secondaryColor: rgba(0, 92, 138, 0.568);
+  --tetriaryColor: rgba(128, 213, 255, 0.821);
+  --ghostlyColor: rgba(180, 230, 255, 0.305);
+  --whiteColor: rgba(255, 255, 255, 0.727);
+}
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  color: red;
+  background-color: var(--primaryColor);
 }
