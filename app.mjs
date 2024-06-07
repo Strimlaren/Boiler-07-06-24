@@ -34,6 +34,7 @@ app.get("/", (_request, _response) => {
     postData: postData,
     pageTitle: "Blogg",
     allTags: _request.allTags,
+    currentLink: "home",
   });
 });
 
@@ -42,10 +43,11 @@ app.get("/create-post", (_request, _response) => {
     postData: postData,
     pageTitle: "Create Post",
     allTags: _request.allTags,
+    currentLink: "createpost",
   });
 });
 
-app.post("/", (_request, _response) => {});
+app.post("/create-post", (_request, _response) => {});
 
 app.put("/", (_request, _response) => {});
 

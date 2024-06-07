@@ -31,7 +31,7 @@ export let postData = [
     postedDate: "2024-06-07",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
-    tags: ["Sport", "Tennis"],
+    tags: ["Sport", "Tennis", "Fotboll"],
     comments: [
       {
         id: 1,
@@ -55,7 +55,7 @@ export let postData = [
     postedDate: "2024-06-07",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
-    tags: ["Sport", "Fotboll"],
+    tags: ["Sport", "Fotboll", "Tennis"],
     comments: [
       {
         id: 1,

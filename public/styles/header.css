@@ -43,6 +43,10 @@ aside {
   color: var(--whiteColor);
 }
 
+.active-link {
+  color: var(--whiteColor);
+}
+
 .tag-navigation {
   background-color: var(--tetriaryColor);
   border-bottom: 1px solid var(--ghostlyColor);
