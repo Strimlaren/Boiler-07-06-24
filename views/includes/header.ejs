@@ -8,10 +8,11 @@
   </nav>
   <aside>
     <ul class="tag-navigation">
-      <% for(let i=0; i < postData.length; i++) { %>
-        <li>AI</li>
-        <li>JavaScript</li>
-        <li>Sport</li>
+      <% for(let i=0; i < allTags.length; i++) { %>
+        <li><a href="" class="tag-link">
+            <%= allTags[i] %>
+          </a></li>
+        <% } %>
     </ul>
   </aside>
 </header>

@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 nav,
@@ -31,7 +32,14 @@ aside {
   transition: all .3s;
 }
 
-.link:hover {
+.tag-link {
+  color: var(--secondaryColor);
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.link:hover,
+.tag-link:hover {
   color: var(--whiteColor);
 }
 
