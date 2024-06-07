@@ -1,10 +1,11 @@
 export let postData = [
   {
     id: 1,
-    postedBy: "Mirza",
+    postedBy: "Jumi",
     avatarLink:
       "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
-    postedDate: "2024-06-07",
+    postedDate: "2024-06-09",
+    title: "Hur JS blir nästa Skynet",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
     tags: ["JavaScript", "AI"],
@@ -13,13 +14,13 @@ export let postData = [
         id: 1,
         postedBy: "Jason",
         postedDate: "2024-06-01",
-        commentContent: "lorem",
+        commentContent: "Riktigt bra post. Snygg avatar. Ful mössa.",
       },
       {
         id: 2,
-        postedBy: "Jason",
+        postedBy: "Mirza",
         postedDate: "2024-06-01",
-        commentContent: "ipsum",
+        commentContent: "Varför matar du inte din hund?",
       },
     ],
   },
@@ -29,19 +30,20 @@ export let postData = [
     avatarLink:
       "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
     postedDate: "2024-06-07",
+    title: "Fotboll borde stängas ner",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
     tags: ["Sport", "Tennis", "Fotboll"],
     comments: [
       {
         id: 1,
-        postedBy: "Jason",
+        postedBy: "Abdirahman",
         postedDate: "2024-06-01",
-        commentContent: "Va håller du på med ditt sepe",
+        commentContent: "Va va det jag skulle göra?",
       },
       {
         id: 2,
-        postedBy: "Jason",
+        postedBy: "Eva",
         postedDate: "2024-06-01",
         commentContent: "Va säger du ditt sepe",
       },
@@ -53,21 +55,22 @@ export let postData = [
     avatarLink:
       "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
     postedDate: "2024-06-07",
+    title: "Fotboll borde hyllas",
     postContent: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
     likes: 0,
     tags: ["Sport", "Fotboll", "Tennis"],
     comments: [
       {
         id: 1,
-        postedBy: "Aleksei",
+        postedBy: "KanonCarr0",
         postedDate: "2024-06-01",
-        commentContent: "Nu jävlar",
+        commentContent: "Nu jävlar. Nu röstar vi på Kalle Anka.",
       },
       {
         id: 2,
-        postedBy: "Alexei",
+        postedBy: "AleXeJ",
         postedDate: "2024-06-01",
-        commentContent: "Hallå",
+        commentContent: "Hello world. Jag stavar mitt namn såhär.",
       },
     ],
   },
