@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("./includes/head.ejs") %>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/styles/style.css">
-  <title>Blogg</title>
-</head>
+  <body>
+    <form>
 
-<body>
-  <form action="" method="post">
+      <label for="postedBy">Posted By:</label><br>
+      <input type="text" id="postedBy" name="postedBy"><br>
 
-  </form>
-</body>
+      <label for="avatarLink">Avatar Link:</label><br>
+      <input type="text" id="avatarLink" name="avatarLink"><br>
 
-</html>
+      <label for="cars">Tags:</label><br>
+      <input type="text" id="tags" name="tags"><br>
+
+      <label for="postedBy">Blogg post text</label><br>
+      <textarea type="text" col="10" row="50" id="postContent" name="postContent"></textarea><br>
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+    <%- include("./includes/end.ejs") %>

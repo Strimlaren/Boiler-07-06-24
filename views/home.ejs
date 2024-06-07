@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include("./includes/head.ejs") %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/styles/style.css">
-  <title>Blogg</title>
-</head>
+  </head>
 
-<body>
-  <h1>home</h1>
-  <img src="<%= postData[1].avatar %>" alt="Strimlaren">
-</body>
+  <body>
+    <header class="header">
+      <h1>Malmös Blogg</h1>
+      <nav>
+        <ul>
+          <li>Blogg</li>
+          <li>New Post</li>
+        </ul>
+      </nav>
+      <ul>
 
-</html>
+      </ul>
+    </header>
+
+    <%- include("./includes/end.ejs") %>
