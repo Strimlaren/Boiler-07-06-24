@@ -4,12 +4,15 @@ const app = express();
 
 app.use(express.static("public"));
 app.use(express.json());
+app.set("view engine", "ejs");
 
 const PORT = 3000;
 
 import { postData } from "./public/data/postData.mjs";
 
-app.get("/", (_request, _response) => {});
+app.get("/", (_request, _response) => {
+  _response.render("home", { postData: postData });
+});
 
 app.post("/", (_request, _response) => {});
 
