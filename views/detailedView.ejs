@@ -1,10 +1,43 @@
 <%- include("./includes/head.ejs") %>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/styles/home.css">
   </head>
 
   <body>
-    <h1>
-      <%= pageTitle %>
-    </h1>
+    <%- include("./includes/header.ejs") %>
 
-    <%- includes("./includes/end.ejs") %>
+      <main class="home-container">
+        <article class="post-container">
+          <div class="post-header">
+            <img src="<%= postData[postIndex].avatarLink %>" alt="avatar. duh..">
+            <div>
+              <h2 class="detailed-title">
+                <%= postData[postIndex].title %>
+              </h2>
+              <p class="post-header-metadata">Posted by: <span class="highlight">
+                  <%= postData[postIndex].postedBy %>
+                </span> @ <%= postData[postIndex].postedDate %>
+              </p>
+            </div>
+          </div>
+          <div class="padding">
+            <p>
+              <%= postData[postIndex].postContent %>
+            </p>
+          </div>
+          <div class="post-footer padding">
+            <p><span class="highlight">Tags:</span>
+              <%= postData[postIndex].tags.map(tag=> tag).join(', ') %>
+            </p>
+            <div class="post-footer-right">
+              <p><span class="highlight">Likes:</span>
+                <%= postData[postIndex].likes %>
+              </p>
+              <p><span class="highlight">Comments:</span>
+                <%= postData[postIndex].comments.length %>
+              </p>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <%- include("./includes/end.ejs") %>

@@ -8,17 +8,21 @@
       <main class="home-container">
         <% for(let i=0; i < postData.length; i++) { %>
           <article class="post-container">
+
             <div class="post-header">
               <img src="<%= postData[i].avatarLink %>" alt="avatar. duh..">
               <div>
-                <h2 class="post-title">
-                  <%= postData[i].title %>
-                </h2>
+                <a class="post-title-link" href="/post/<%= postData[i].title.toLowerCase().replaceAll(/ /g, '-') %>">
+                  <h2 class="post-title">
+                    <%= postData[i].title %>
+                  </h2>
+                </a>
                 <p class="post-header-metadata">Posted by: <span class="highlight">
                     <%= postData[i].postedBy %>
                   </span> @ <%= postData[i].postedDate %>
                 </p>
               </div>
+
             </div>
             <div class="padding">
               <p>

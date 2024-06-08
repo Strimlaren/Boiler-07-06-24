@@ -11,9 +11,12 @@
             <div class="post-header">
               <img src="<%= filteredPosts[i].avatarLink %>" alt="avatar. duh..">
               <div>
-                <h2 class="post-title">
-                  <%= filteredPosts[i].title %>
-                </h2>
+                <a class="post-title-link"
+                  href="/post/<%= filteredPosts[i].title.toLowerCase().replaceAll(/ /g, '-') %>">
+                  <h2 class="post-title">
+                    <%= filteredPosts[i].title %>
+                  </h2>
+                </a>
                 <p class="post-header-metadata">Posted by: <span class="highlight">
                     <%= filteredPosts[i].postedBy %>
                   </span> @ <%= filteredPosts[i].postedDate %>

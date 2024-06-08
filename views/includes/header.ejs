@@ -6,7 +6,7 @@
       <li><a class="link <%= currentLink === 'createpost' ? 'active-link' : '' %>" href="/create-post">New Post</a></li>
     </ul>
   </nav>
-  <% if(currentLink==="home" || currentLink==="tag" ) { %>
+  <% if(currentLink==="home" || currentLink==="tag" || currentLink==="detail" ) { %>
     <aside>
       <ul class="tag-navigation">
         <% for(let i=0; i < allTags.length; i++) { %>
