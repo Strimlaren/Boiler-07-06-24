@@ -26,7 +26,7 @@ app.use((_request, _response, next) => {
   _request.allTags = allTags;
   next();
 });
-
+/* Home */
 app.get("/", (_request, _response) => {
   _response.render("home", {
     postData: postData,
@@ -35,7 +35,7 @@ app.get("/", (_request, _response) => {
     currentLink: "home", // Used to highlight currently browsed link.
   });
 });
-
+/* Filters posts by selected tag */
 app.get("/tag/:tagName", (_request, _response) => {
   const { tagName } = _request.params;
 
@@ -53,14 +53,14 @@ app.get("/tag/:tagName", (_request, _response) => {
     currentLink: "tag",
   });
 });
-
+/* View individual posts in detailed view with comments visible */
 app.get("/post/:title", (_request, _response) => {
   const { title } = _request.params;
 
   const postIndex = postData.findIndex(
     (post) => post.title.toLowerCase().replace(/ /g, "-") === title
   );
-  console.log(postIndex);
+
   _response.render("detailedView", {
     postData: postData,
     pageTitle: title,

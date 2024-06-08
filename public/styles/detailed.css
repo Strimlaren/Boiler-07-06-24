@@ -1,0 +1,33 @@
+.comments-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.comment-wrapper {
+  width: 250px;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.comment-header {
+  background-color: var(--secondaryColor);
+  padding: .4rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.comment-header h3 {
+  font-weight: 200;
+  font-size: 1rem;
+  color: var(--whiteColor);
+}
+
+.comment-body {
+  padding: .4rem;
+  font-size: .8rem;
+  border-bottom: 1px solid var(--secondaryColor);
+  border-radius: 10px;
+}
