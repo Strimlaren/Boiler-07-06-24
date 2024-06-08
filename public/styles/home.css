@@ -72,3 +72,9 @@
 .padding {
   padding: .5rem;
 }
+
+@media (max-width: 710px) {
+  .home-container {
+    max-width: 400px;
+  }
+}
