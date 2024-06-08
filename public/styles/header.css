@@ -18,13 +18,13 @@ aside {
   justify-content: center;
   width: 100%;
   padding: .2rem 0;
-  gap: 1rem;
 }
 
 .main-navigation {
   background-color: var(--secondaryColor);
   text-transform: uppercase;
   font-size: 1.2rem;
+  gap: 1rem;
 }
 
 .link {
@@ -52,12 +52,14 @@ aside {
   background-color: var(--tetriaryColor);
   border-bottom: 1px solid var(--ghostlyColor);
   font-size: 0.8rem;
+  gap: .5rem;
 }
 
 .title {
   color: var(--secondaryColor);
   font-size: 2.4rem;
   text-transform: uppercase;
+  letter-spacing: 8px;
   margin: .5rem 0;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.262);
 }

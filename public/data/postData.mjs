@@ -14,15 +14,21 @@ export let postData = [
       {
         id: 1,
         postedBy: "Jason",
-        postedDate: "2024-06-01",
+        postedDate: "2024-06-03",
         commentContent:
           "Riktigt bra post. Snygg avatar. Ful mössa. Tjock hund.",
       },
       {
         id: 2,
         postedBy: "Mirza",
-        postedDate: "2024-06-01",
+        postedDate: "2024-06-02",
         commentContent: "Men varför matar du inte hunden?",
+      },
+      {
+        id: 3,
+        postedBy: "Eva",
+        postedDate: "2024-06-01",
+        commentContent: "Jag vill ha saft. Kolsyrad mjölk någon?",
       },
     ],
   },
@@ -50,6 +56,13 @@ export let postData = [
         postedDate: "2024-06-01",
         commentContent:
           "Har du använt Chat-Sepe-T ? Vaddå dricker du lättmjölk eller? Figures.",
+      },
+      {
+        id: 3,
+        postedBy: "AleXeJ",
+        postedDate: "2024-06-01",
+        commentContent:
+          "Om man vill ha en pizza men inte har pengar till en pizza, kan man få en falafel då?",
       },
     ],
   },
@@ -83,6 +96,13 @@ export let postData = [
         postedDate: "2024-06-01",
         commentContent:
           "Låter bra, med vad har detta med dans att göra? Eller Don Lemon? ",
+      },
+      {
+        id: 4,
+        postedBy: "Linus",
+        postedDate: "2024-06-01",
+        commentContent:
+          "Ahh nu fattar jag, nej det var inget, jag tänkte bara, ja skit samma. Tack, tack. ",
       },
     ],
   },

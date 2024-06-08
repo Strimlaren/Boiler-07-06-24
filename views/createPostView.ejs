@@ -5,21 +5,24 @@
   <body>
     <%- include("./includes/header.ejs") %>
       <section class="new-post-container">
-        <form>
+        <form method="POST" action="/create-post">
 
-          <label for="postedBy">Posted By:</label><br>
-          <input type="text" id="postedBy" name="postedby"><br>
+          <label for="postedby">Posted By:</label><br>
+          <input type="text" id="postedby" name="postedby"><br>
 
-          <label for="avatarLink">Avatar Link:</label><br>
-          <input type="text" id="avatarLink" name="avatarlink"><br>
+          <label for="avatarlink">Avatar Link:</label><br>
+          <input type="text" id="avatarlink" name="avatarlink"><br>
 
-          <label for="cars">Tags:</label><br>
+          <label for="title">Blog Title:</label><br>
+          <input type="text" id="title" name="title"><br>
+
+          <label for="postcontent">Blogg post text:</label><br>
+          <textarea type="text" col="40" row="50" id="postcontent" name="postcontent"></textarea><br>
+
+          <label for="tags">Tags:</label><br>
           <input type="text" id="tags" name="tags"><br>
 
-          <label for="postedBy">Blogg post text</label><br>
-          <textarea type="text" col="40" row="50" id="postContent" name="postContent"></textarea><br>
-
-          <button type="submit">Submit new blogpost</button>
+          <button type="submit">SUBMIT NEW BLOGPOST</button>
 
         </form>
       </section>

@@ -11,6 +11,14 @@ const PORT = 3000;
 
 import { postData } from "./public/data/postData.mjs";
 
+/* Expects an array of strings. Returns an array with same strings but capitalized */
+function capitalizeArray(stringArray) {
+  const capitalizedArray = stringArray.map(
+    (string) => string.charAt(0).toUpperCase() + string.slice(1)
+  );
+  return capitalizedArray;
+}
+
 /* Middleware that runs on all requests (for now). Gets all unique tags
 in use and attaches them to _request object for later use. */
 app.use((_request, _response, next) => {
@@ -91,7 +99,7 @@ app.post("/post/:title", (_request, _response) => {
     (post) => post.title.toLowerCase().replace(/ /g, "-") === title
   );
 
-  const newPost = {
+  const newComment = {
     id: postData[postIndex].comments.length + 1,
     postedBy: formData.name,
     postedDate: _request.dateToday,
@@ -99,7 +107,7 @@ app.post("/post/:title", (_request, _response) => {
   };
 
   /* Insert the new comment first in line */
-  postData[postIndex].comments.unshift(newPost);
+  postData[postIndex].comments.unshift(newComment);
   _response.redirect(`/post/${title}`);
 });
 
@@ -112,7 +120,32 @@ app.get("/create-post", (_request, _response) => {
   });
 });
 
-app.post("/create-post", (_request, _response) => {});
+app.post("/create-post", (_request, _response) => {
+  const formData = _request.body;
+  let avatar = "";
+
+  if (formData.avatarlink.length < 10) {
+    avatar =
+      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png";
+  } else {
+    avatar = formData.avatarlink;
+  }
+
+  const newPost = {
+    id: postData.length + 1,
+    postedBy: formData.postedby,
+    avatarLink: avatar,
+    postedDate: _request.dateToday,
+    title: formData.title,
+    postContent: formData.postcontent,
+    likes: 0,
+    tags: capitalizeArray(formData.tags.split(" ")),
+    comments: [],
+  };
+
+  postData.unshift(newPost);
+  _response.redirect("/");
+});
 
 app.put("/", (_request, _response) => {});
 
