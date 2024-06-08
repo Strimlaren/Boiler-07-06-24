@@ -6,13 +6,15 @@
       <li><a class="link <%= currentLink === 'createpost' ? 'active-link' : '' %>" href="/create-post">New Post</a></li>
     </ul>
   </nav>
-  <aside>
-    <ul class="tag-navigation">
-      <% for(let i=0; i < allTags.length; i++) { %>
-        <li><a href="" class="tag-link">
-            <%= allTags[i] %>
-          </a></li>
-        <% } %>
-    </ul>
-  </aside>
+  <% if(currentLink==="home" ) { %>
+    <aside>
+      <ul class="tag-navigation">
+        <% for(let i=0; i < allTags.length; i++) { %>
+          <li><a href="" class="tag-link">
+              <%= allTags[i] %>
+            </a></li>
+          <% } %>
+      </ul>
+    </aside>
+    <% } %>
 </header>
