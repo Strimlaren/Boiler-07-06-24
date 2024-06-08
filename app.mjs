@@ -4,6 +4,7 @@ const app = express();
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 const PORT = 3000;
@@ -24,6 +25,17 @@ app.use((_request, _response, next) => {
   }
 
   _request.allTags = allTags;
+  next();
+});
+/* Middleware that generates and attaches todays date to _request object. */
+app.use((_request, _response, next) => {
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  _request.dateToday = `${year}-${month}-${day}`;
   next();
 });
 /* Home */
@@ -57,6 +69,7 @@ app.get("/tag/:tagName", (_request, _response) => {
 app.get("/post/:title", (_request, _response) => {
   const { title } = _request.params;
 
+  /* :title is in the format 'link-to-article' */
   const postIndex = postData.findIndex(
     (post) => post.title.toLowerCase().replace(/ /g, "-") === title
   );
@@ -68,6 +81,26 @@ app.get("/post/:title", (_request, _response) => {
     currentLink: "detail",
     postIndex: postIndex,
   });
+});
+
+app.post("/post/:title", (_request, _response) => {
+  const { title } = _request.params;
+  const formData = _request.body;
+  console.log(title);
+  const postIndex = postData.findIndex(
+    (post) => post.title.toLowerCase().replace(/ /g, "-") === title
+  );
+  console.log(postIndex);
+  const newPost = {
+    id: postData[postIndex].comments.length + 1,
+    postedBy: formData.name,
+    postedDate: _request.dateToday,
+    commentContent: formData.comment,
+  };
+
+  /* Insert the new post first in line */
+  postData[postIndex].comments.unshift(newPost);
+  _response.redirect(`/post/${title}`);
 });
 
 app.get("/create-post", (_request, _response) => {

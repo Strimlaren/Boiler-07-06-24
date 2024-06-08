@@ -31,3 +31,51 @@
   border-bottom: 1px solid var(--secondaryColor);
   border-radius: 10px;
 }
+
+.post-comment-container {
+  width: 350px;
+  border-left: 1px solid var(--secondaryColor);
+  border-right: 1px solid var(--secondaryColor);
+  border-radius: 10px;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 70px;
+}
+
+.comment-form label {
+  color: var(--secondaryColor);
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  resize: none;
+  padding: .4rem;
+  background-color: var(--ghostlyColor);
+  border: 0;
+  outline: 0;
+  transition: all .4s;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  background-color: var(--whiteColor);
+}
+
+.comment-form button {
+  width: fit-content;
+  padding: .5rem 2rem;
+  cursor: pointer;
+  background-color: var(--primaryColor);
+  border: 0;
+  opacity: 0.7;
+  border-radius: 5px;
+  transition: all .4s;
+  margin-top: .5rem;
+}
+
+.comment-form button:hover {
+  opacity: 1;
+}

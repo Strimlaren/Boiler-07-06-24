@@ -1,0 +1,31 @@
+<aside class="comments-container">
+  <% for(let i=0; i < postData[postIndex].comments.length; i++) { %>
+
+    <section class="comment-wrapper">
+      <div class="comment-header">
+        <h3>
+          On <%= postData[postIndex].comments[i].postedDate %>
+            <span class="highlight">
+              <%= postData[postIndex].comments[i].postedBy %>
+            </span> wrote:
+        </h3>
+      </div>
+      <p class="comment-body">
+        <%= postData[postIndex].comments[i].commentContent %>
+      </p>
+    </section>
+
+    <% } %>
+
+      <section class="post-comment-container">
+        <form class="comment-form" action="/post/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
+          method="POST">
+          <label for="name">Name:</label>
+          <input type="text" maxlength="20" id="name" name="name">
+          <label for="comment">Comment:</label>
+          <textarea rows="4" maxlength="300" type="comment" id="comment" name="comment"></textarea>
+          <button type="submit">Submit Comment</button>
+        </form>
+      </section>
+
+</aside>

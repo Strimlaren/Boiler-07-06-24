@@ -8,6 +8,7 @@
   margin: 0;
   list-style-type: none;
   font-family: "Dosis", sans-serif;
+  scrollbar-width: none;
 }
 
 :root {
