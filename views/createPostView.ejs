@@ -1,24 +1,27 @@
 <%- include("./includes/head.ejs") %>
+  <link rel="stylesheet" href="/styles/createpost.css">
   </head>
 
   <body>
     <%- include("./includes/header.ejs") %>
-      <form>
+      <section class="new-post-container">
+        <form>
 
-        <label for="postedBy">Posted By:</label><br>
-        <input type="text" id="postedBy" name="postedBy"><br>
+          <label for="postedBy">Posted By:</label><br>
+          <input type="text" id="postedBy" name="postedby"><br>
 
-        <label for="avatarLink">Avatar Link:</label><br>
-        <input type="text" id="avatarLink" name="avatarLink"><br>
+          <label for="avatarLink">Avatar Link:</label><br>
+          <input type="text" id="avatarLink" name="avatarlink"><br>
 
-        <label for="cars">Tags:</label><br>
-        <input type="text" id="tags" name="tags"><br>
+          <label for="cars">Tags:</label><br>
+          <input type="text" id="tags" name="tags"><br>
 
-        <label for="postedBy">Blogg post text</label><br>
-        <textarea type="text" col="10" row="50" id="postContent" name="postContent"></textarea><br>
+          <label for="postedBy">Blogg post text</label><br>
+          <textarea type="text" col="40" row="50" id="postContent" name="postContent"></textarea><br>
 
-        <button type="submit">Submit</button>
+          <button type="submit">Submit new blogpost</button>
 
-      </form>
+        </form>
+      </section>
 
       <%- include("./includes/end.ejs") %>

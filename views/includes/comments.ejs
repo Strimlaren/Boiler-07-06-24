@@ -7,7 +7,7 @@
           On <%= postData[postIndex].comments[i].postedDate %>
             <span class="highlight">
               <%= postData[postIndex].comments[i].postedBy %>
-            </span> wrote:
+            </span> said:
         </h3>
       </div>
       <p class="comment-body">
@@ -20,9 +20,9 @@
       <section class="post-comment-container">
         <form class="comment-form" action="/post/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
           method="POST">
-          <label for="name">Name:</label>
+          <label for="name">Name</label>
           <input type="text" maxlength="20" id="name" name="name">
-          <label for="comment">Comment:</label>
+          <label for="comment">Comment</label>
           <textarea rows="4" maxlength="300" type="comment" id="comment" name="comment"></textarea>
           <button type="submit">Submit Comment</button>
         </form>

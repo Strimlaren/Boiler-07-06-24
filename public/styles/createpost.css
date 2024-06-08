@@ -1,0 +1,51 @@
+.new-post-container {
+  width: 500px;
+  background-color: transparent;
+  border-left: 1px solid var(--secondaryColor);
+  border-right: 1px solid var(--secondaryColor);
+  border-radius: 10px;
+  padding: .5rem;
+}
+
+.new-post-container input,
+.new-post-container textarea {
+  width: 100%;
+  resize: none;
+  padding: .4rem;
+  background-color: var(--ghostlyColor);
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  transition: all .4s;
+}
+
+.new-post-container textarea {
+  height: 7.5rem;
+}
+
+.new-post-container label {
+  color: var(--secondaryColor);
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.new-post-container input:focus,
+.new-post-container textarea:focus {
+  background-color: var(--whiteColor);
+}
+
+.new-post-container button {
+  width: fit-content;
+  padding: .5rem 2rem;
+  cursor: pointer;
+  background-color: var(--primaryColor);
+  border: 0;
+  opacity: 0.7;
+  border-radius: 5px;
+  transition: all .4s;
+  margin-top: .5rem;
+}
+
+.new-post-container button:hover {
+  opacity: 1;
+}

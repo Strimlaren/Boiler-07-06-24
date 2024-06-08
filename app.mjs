@@ -82,15 +82,15 @@ app.get("/post/:title", (_request, _response) => {
     postIndex: postIndex,
   });
 });
-
+/* Adds new comments */
 app.post("/post/:title", (_request, _response) => {
   const { title } = _request.params;
   const formData = _request.body;
-  console.log(title);
+
   const postIndex = postData.findIndex(
     (post) => post.title.toLowerCase().replace(/ /g, "-") === title
   );
-  console.log(postIndex);
+
   const newPost = {
     id: postData[postIndex].comments.length + 1,
     postedBy: formData.name,
@@ -98,7 +98,7 @@ app.post("/post/:title", (_request, _response) => {
     commentContent: formData.comment,
   };
 
-  /* Insert the new post first in line */
+  /* Insert the new comment first in line */
   postData[postIndex].comments.unshift(newPost);
   _response.redirect(`/post/${title}`);
 });

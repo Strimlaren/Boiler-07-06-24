@@ -1,9 +1,10 @@
 .comments-container {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 1rem;
+  gap: 2rem;
 }
 
 .comment-wrapper {
@@ -46,6 +47,8 @@
 
 .comment-form label {
   color: var(--secondaryColor);
+  font-size: .8rem;
+  text-transform: uppercase;
 }
 
 .comment-form input,
@@ -56,6 +59,7 @@
   background-color: var(--ghostlyColor);
   border: 0;
   outline: 0;
+  border-radius: 5px;
   transition: all .4s;
 }
 
