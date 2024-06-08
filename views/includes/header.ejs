@@ -6,11 +6,12 @@
       <li><a class="link <%= currentLink === 'createpost' ? 'active-link' : '' %>" href="/create-post">New Post</a></li>
     </ul>
   </nav>
-  <% if(currentLink==="home" ) { %>
+  <% if(currentLink==="home" || currentLink==="tag" ) { %>
     <aside>
       <ul class="tag-navigation">
         <% for(let i=0; i < allTags.length; i++) { %>
-          <li><a href="" class="tag-link">
+          <li><a href="/tag/<%= allTags[i].toLowerCase() %>"
+              class="tag-link <%= pageTitle.toLowerCase() === allTags[i].toLowerCase() ? 'active-link' : '' %>">
               <%= allTags[i] %>
             </a></li>
           <% } %>

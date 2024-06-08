@@ -2,7 +2,7 @@ import express from "express";
 
 const app = express();
 
-app.use(express.static("./public"));
+app.use(express.static("public"));
 app.use(express.json());
 app.set("view engine", "ejs");
 
@@ -12,7 +12,7 @@ import { postData } from "./public/data/postData.mjs";
 
 /* Middleware that runs on all requests (for now). Gets all unique tags
 in use and attaches them to _request object for later use. */
-function getAllCurrentTags(_request, _response, next) {
+app.use((_request, _response, next) => {
   let allTags = [];
 
   for (let i = 0; i < postData.length; i++) {
@@ -25,9 +25,7 @@ function getAllCurrentTags(_request, _response, next) {
 
   _request.allTags = allTags;
   next();
-}
-/* Initiate middleware to run on all requests. Can later be repositioned. */
-app.use(getAllCurrentTags);
+});
 
 app.get("/", (_request, _response) => {
   _response.render("home", {
@@ -35,6 +33,22 @@ app.get("/", (_request, _response) => {
     pageTitle: "Blogg",
     allTags: _request.allTags,
     currentLink: "home",
+  });
+});
+
+app.get("/tag/:tagName", (_request, _response) => {
+  const { tagName } = _request.params;
+
+  const postsFilteredByTag = postData.filter((post) => {
+    return post.tags.map((tag) => tag.toLowerCase()).includes(tagName);
+  });
+
+  _response.render("filteredView", {
+    postData: postData,
+    pageTitle: tagName,
+    allTags: _request.allTags,
+    filteredPosts: postsFilteredByTag,
+    currentLink: "tag",
   });
 });
 

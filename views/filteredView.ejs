@@ -1,10 +1,46 @@
 <%- include("./includes/head.ejs") %>
-
+  <link rel="stylesheet" href="/styles/home.css">
   </head>
 
   <body>
-    <h1>
-      <%= pageTitle %>
-    </h1>
+    <%- include("./includes/header.ejs") %>
 
-    <%- includes("./includes/end.ejs") %>
+      <main class="home-container">
+        <% for(let i=0; i < filteredPosts.length; i++) { %>
+          <article class="post-container">
+            <div class="post-header">
+              <img src="<%= filteredPosts[i].avatarLink %>" alt="avatar. duh..">
+              <div>
+                <h2 class="post-title">
+                  <%= filteredPosts[i].title %>
+                </h2>
+                <p class="post-header-metadata">Posted by: <span class="highlight">
+                    <%= filteredPosts[i].postedBy %>
+                  </span> @ <%= filteredPosts[i].postedDate %>
+                </p>
+              </div>
+            </div>
+            <div class="padding">
+              <p>
+                <%= filteredPosts[i].postContent %>
+              </p>
+            </div>
+            <div class="post-footer padding">
+              <p><span class="highlight">Tags:</span>
+                <%= filteredPosts[i].tags.map(tag=> tag).join(', ') %>
+              </p>
+              <div class="post-footer-right">
+                <p><span class="highlight">Likes:</span>
+                  <%= filteredPosts[i].likes %>
+                </p>
+                <p><span class="highlight">Comments:</span>
+                  <%= filteredPosts[i].comments.length %>
+                </p>
+              </div>
+            </div>
+          </article>
+          <% } %>
+
+      </main>
+
+      <%- include("./includes/end.ejs") %>
