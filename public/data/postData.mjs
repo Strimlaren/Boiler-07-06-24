@@ -35,7 +35,7 @@ export let postData = [
     title: "Fotboll borde stängas ner",
     postContent:
       "Fotboll borde stängas ner för att det är en direkt fara för soffpotatisar överallt. Varje gång en match sänds, förvandlas vardagsrummet till ett mini-VM med chipskrig och ölduschar. Hunden tror att den är en boll och katten tror att den är domaren. Och vi kan ju inte glömma bort alla trasiga fjärrkontroller efter ett felaktigt domslut. För världens soffors säkerhet, låt oss säga adjö till fotboll och hej till schack på TV!",
-    likes: 0,
+    likes: 972,
     tags: ["Sport", "Tennis", "Fotboll"],
     comments: [
       {
@@ -61,7 +61,7 @@ export let postData = [
     title: "Fotboll borde hyllas",
     postContent:
       "Fotboll borde hyllas för sin magiska förmåga att förena oss alla – från soffpotatisen som tycker att chips är en sport till den hängivna fansen som målar sig själv i lagets färger. Det är sporten där vuxna män jagar en boll som om deras liv hängde på det och där vi alla blir experter i 90 minuter. Dessutom, var annars kan man se en frisyr inspirerad av både ett våffeljärn och en kanariefågel? Fotboll är världens bästa underhållning!",
-    likes: 0,
+    likes: 3,
     tags: ["Sport", "Fotboll", "Tennis"],
     comments: [
       {
