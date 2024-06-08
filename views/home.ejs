@@ -5,14 +5,41 @@
   <body>
     <%- include("./includes/header.ejs") %>
 
-      <main>
-
-        <article>
-          <div></div>
-          <div></div>
-          <div></div>
-        </article>
-
+      <main class="home-container">
+        <% for(let i=0; i < postData.length; i++) { %>
+          <article class="post-container">
+            <div class="post-header">
+              <img src="<%= postData[i].avatarLink %>" alt="avatar. duh..">
+              <div>
+                <h2 class="post-title">
+                  <%= postData[i].title %>
+                </h2>
+                <p class="post-header-metadata">Posted by: <span class="highlight">
+                    <%= postData[i].postedBy %>
+                  </span> @ <%= postData[i].postedDate %>
+                </p>
+              </div>
+            </div>
+            <div class="padding">
+              <p>
+                <%= postData[i].postContent %>
+              </p>
+            </div>
+            <div class="post-footer padding">
+              <p><span class="highlight">Tags:</span>
+                <%= postData[i].tags.map(tag=> tag).join(', ') %>
+              </p>
+              <div class="post-footer-right">
+                <p><span class="highlight">Likes:</span>
+                  <%= postData[i].likes %>
+                </p>
+                <p><span class="highlight">Comments:</span>
+                  <%= postData[i].comments.length %>
+                </p>
+              </div>
+            </div>
+          </article>
+          <% } %>
       </main>
 
       <%- include("./includes/end.ejs") %>
