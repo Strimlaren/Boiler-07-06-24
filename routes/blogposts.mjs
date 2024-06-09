@@ -11,7 +11,8 @@ function capitalizeArray(stringArray) {
   );
   return capitalizedArray;
 }
-/* NOTE: THE KEYWORD "new" WILL HAVE TO BE BLOCKED BY VALIDATION TO AVOID ROUTING ISSUES */
+/* NOTE: THE KEYWORD "new" WILL HAVE TO BE BLOCKED AS BLOG POST TITLE 
+BY VALIDATION TO AVOID ROUTING ISSUES */
 
 /* New blog-post view */
 router.get("/blog/new", (_request, _response) => {
