@@ -11,34 +11,11 @@ const PORT = 3000;
 
 import { postData } from "./public/data/postData.mjs";
 import blogPostRoutes from "./routes/blogposts.mjs";
+import tagFilterRoutes from "./routes/tagfilter.mjs";
+import middleware from "./middleware/middleware.mjs";
 
-/* Middleware that gets all unique tags in use and attaches them 
-to _request object for later use. */
-app.use((_request, _response, next) => {
-  let allTags = [];
+app.use(middleware);
 
-  for (let i = 0; i < postData.length; i++) {
-    for (let j = 0; j < postData[i].tags.length; j++) {
-      if (!allTags.includes(postData[i].tags[j])) {
-        allTags.push(postData[i].tags[j]);
-      }
-    }
-  }
-
-  _request.allTags = allTags;
-  next();
-});
-/* Middleware that generates and attaches todays date to _request object. */
-app.use((_request, _response, next) => {
-  const today = new Date();
-
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const day = String(today.getDate()).padStart(2, "0");
-
-  _request.dateToday = `${year}-${month}-${day}`;
-  next();
-});
 /* Home view */
 app.get("/", (_request, _response) => {
   _response.render("home", {
@@ -48,61 +25,8 @@ app.get("/", (_request, _response) => {
     currentLink: "home", // Used to highlight currently browsed link.
   });
 });
-/* Filter posts by selected tag */
-app.get("/tag/:tagName", (_request, _response) => {
-  const { tagName } = _request.params;
 
-  /* Lowercase all tags in each tags array before checking if tagName is
-  included. */
-  const postsFilteredByTag = postData.filter((post) => {
-    return post.tags.map((tag) => tag.toLowerCase()).includes(tagName);
-  });
-
-  _response.render("filteredView", {
-    postData: postData,
-    pageTitle: tagName,
-    allTags: _request.allTags,
-    filteredPosts: postsFilteredByTag,
-    currentLink: "tag",
-  });
-});
-/* Detailed view + comments */
-app.get("/post/:title", (_request, _response) => {
-  const { title } = _request.params;
-
-  /* :title is in the format 'link-to-article' */
-  const postIndex = postData.findIndex(
-    (post) => post.title.toLowerCase().replace(/ /g, "-") === title
-  );
-
-  _response.render("detailedView", {
-    postData: postData,
-    pageTitle: title,
-    allTags: _request.allTags,
-    currentLink: "detail",
-    postIndex: postIndex,
-  });
-});
-/* Add new comments */
-app.post("/post/:title", (_request, _response) => {
-  const { title } = _request.params;
-  const formData = _request.body;
-
-  const postIndex = postData.findIndex(
-    (post) => post.title.toLowerCase().replace(/ /g, "-") === title
-  );
-
-  const newComment = {
-    id: postData[postIndex].comments.length + 1,
-    postedBy: formData.name,
-    postedDate: _request.dateToday,
-    commentContent: formData.comment,
-  };
-
-  /* Insert the new comment first in line */
-  postData[postIndex].comments.unshift(newComment);
-  _response.redirect(`/post/${title}`);
-});
+app.use(tagFilterRoutes);
 
 app.use(blogPostRoutes);
 

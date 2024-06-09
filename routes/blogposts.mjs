@@ -11,9 +11,10 @@ function capitalizeArray(stringArray) {
   );
   return capitalizedArray;
 }
+/* NOTE: THE KEYWORD "new" WILL HAVE TO BE BLOCKED BY VALIDATION TO AVOID ROUTING ISSUES */
 
 /* New blog-post view */
-router.get("/create-blog", (_request, _response) => {
+router.get("/blog/new", (_request, _response) => {
   _response.render("createBlogView", {
     postData: postData,
     pageTitle: "Create Blog",
@@ -21,8 +22,9 @@ router.get("/create-blog", (_request, _response) => {
     currentLink: "createblog",
   });
 });
+
 /* Create new blog */
-router.post("/create-blog", (_request, _response) => {
+router.post("/blog/new", (_request, _response) => {
   const formData = _request.body;
   let avatar = "";
 
@@ -47,5 +49,44 @@ router.post("/create-blog", (_request, _response) => {
 
   postData.unshift(newBlog);
   _response.redirect("/");
+});
+
+/* Detailed blog view + comments */
+router.get("/blog/:title", (_request, _response) => {
+  const { title } = _request.params;
+
+  /* :title is in the format 'link-to-article' */
+  const postIndex = postData.findIndex(
+    (post) => post.title.toLowerCase().replace(/ /g, "-") === title
+  );
+
+  _response.render("detailedView", {
+    postData: postData,
+    pageTitle: title,
+    allTags: _request.allTags,
+    currentLink: "detail",
+    postIndex: postIndex,
+  });
+});
+
+/* Add new blog comments */
+router.post("/blog/:title", (_request, _response) => {
+  const { title } = _request.params;
+  const formData = _request.body;
+
+  const postIndex = postData.findIndex(
+    (post) => post.title.toLowerCase().replace(/ /g, "-") === title
+  );
+
+  const newComment = {
+    id: postData[postIndex].comments.length + 1,
+    postedBy: formData.name,
+    postedDate: _request.dateToday,
+    commentContent: formData.comment,
+  };
+
+  /* Insert the new comment first in line */
+  postData[postIndex].comments.unshift(newComment);
+  _response.redirect(`/blog/${title}`);
 });
 export default router;

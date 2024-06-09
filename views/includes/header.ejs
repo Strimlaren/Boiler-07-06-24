@@ -3,7 +3,7 @@
   <nav>
     <ul class="main-navigation">
       <li><a class="link <%= currentLink === 'home' ? 'active-link' : '' %>" href="/">Home</a></li>
-      <li><a class="link <%= currentLink === 'createblog' ? 'active-link' : '' %>" href="/create-blog">New Post</a></li>
+      <li><a class="link <%= currentLink === 'createblog' ? 'active-link' : '' %>" href="/blog/new">New Post</a></li>
     </ul>
   </nav>
   <% if(currentLink==="home" || currentLink==="tag" || currentLink==="detail" ) { %>

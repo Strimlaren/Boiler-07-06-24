@@ -18,7 +18,7 @@
     <% } %>
 
       <section class="post-comment-container">
-        <form class="comment-form" action="/post/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
+        <form class="comment-form" action="/blog/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
           method="POST">
           <label for="name"></label>
           <input type="text" maxlength="20" id="name" name="name" placeholder="Name here...">
