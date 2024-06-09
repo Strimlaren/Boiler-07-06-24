@@ -1,12 +1,12 @@
 <%- include("./includes/head.ejs") %>
-  <link rel="stylesheet" href="/styles/createpost.css">
+  <link rel="stylesheet" href="/styles/createblog.css">
   </head>
 
   <body>
     <%- include("./includes/header.ejs") %>
 
       <section class="new-post-container">
-        <form method="POST" action="/create-post">
+        <form method="POST" action="/create-blog">
 
           <label for="postedby">Posted By:</label><br>
           <input type="text" id="postedby" name="postedby"><br>
@@ -18,8 +18,8 @@
           <label for="title">Blog Title:</label><br>
           <input type="text" id="title" name="title"><br>
 
-          <label for="postcontent">Blog post text:</label><br>
-          <textarea type="text" col="40" row="50" id="postcontent" name="postcontent"></textarea><br>
+          <label for="blogcontent">Blog post text:</label><br>
+          <textarea type="text" col="40" row="50" id="blogcontent" name="blogcontent"></textarea><br>
 
           <label for="tags">Tags:</label><br>
           <input type="text" id="tags" name="tags" placeholder="tag1 tag2 tag3 ..."><br>

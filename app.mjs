@@ -10,17 +10,10 @@ app.set("view engine", "ejs");
 const PORT = 3000;
 
 import { postData } from "./public/data/postData.mjs";
+import blogPostRoutes from "./routes/blogposts.mjs";
 
-/* Expects an array of strings. Returns an array with same strings but capitalized. Used for tags menu. */
-function capitalizeArray(stringArray) {
-  const capitalizedArray = stringArray.map(
-    (string) => string.charAt(0).toUpperCase() + string.slice(1)
-  );
-  return capitalizedArray;
-}
-
-/* Middleware that runs on all requests (for now). Gets all unique tags
-in use and attaches them to _request object for later use. */
+/* Middleware that gets all unique tags in use and attaches them 
+to _request object for later use. */
 app.use((_request, _response, next) => {
   let allTags = [];
 
@@ -110,42 +103,8 @@ app.post("/post/:title", (_request, _response) => {
   postData[postIndex].comments.unshift(newComment);
   _response.redirect(`/post/${title}`);
 });
-/* New post view */
-app.get("/create-post", (_request, _response) => {
-  _response.render("createPostView", {
-    postData: postData,
-    pageTitle: "Create Post",
-    allTags: _request.allTags,
-    currentLink: "createpost",
-  });
-});
-/* Create new blog */
-app.post("/create-post", (_request, _response) => {
-  const formData = _request.body;
-  let avatar = "";
 
-  if (formData.avatarlink.length < 10) {
-    avatar =
-      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png";
-  } else {
-    avatar = formData.avatarlink;
-  }
-
-  const newPost = {
-    id: postData.length + 1,
-    postedBy: formData.postedby,
-    avatarLink: avatar,
-    postedDate: _request.dateToday,
-    title: formData.title,
-    postContent: formData.postcontent,
-    likes: 0,
-    tags: capitalizeArray(formData.tags.split(" ")),
-    comments: [],
-  };
-
-  postData.unshift(newPost);
-  _response.redirect("/");
-});
+app.use(blogPostRoutes);
 
 app.put("/", (_request, _response) => {});
 
