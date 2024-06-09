@@ -11,7 +11,7 @@ const PORT = 3000;
 
 import { postData } from "./public/data/postData.mjs";
 
-/* Expects an array of strings. Returns an array with same strings but capitalized */
+/* Expects an array of strings. Returns an array with same strings but capitalized. Used for tags menu. */
 function capitalizeArray(stringArray) {
   const capitalizedArray = stringArray.map(
     (string) => string.charAt(0).toUpperCase() + string.slice(1)
@@ -46,7 +46,7 @@ app.use((_request, _response, next) => {
   _request.dateToday = `${year}-${month}-${day}`;
   next();
 });
-/* Home */
+/* Home view */
 app.get("/", (_request, _response) => {
   _response.render("home", {
     postData: postData,
@@ -55,7 +55,7 @@ app.get("/", (_request, _response) => {
     currentLink: "home", // Used to highlight currently browsed link.
   });
 });
-/* Filters posts by selected tag */
+/* Filter posts by selected tag */
 app.get("/tag/:tagName", (_request, _response) => {
   const { tagName } = _request.params;
 
@@ -73,7 +73,7 @@ app.get("/tag/:tagName", (_request, _response) => {
     currentLink: "tag",
   });
 });
-/* View individual posts in detailed view with comments visible */
+/* Detailed view + comments */
 app.get("/post/:title", (_request, _response) => {
   const { title } = _request.params;
 
@@ -90,7 +90,7 @@ app.get("/post/:title", (_request, _response) => {
     postIndex: postIndex,
   });
 });
-/* Adds new comments */
+/* Add new comments */
 app.post("/post/:title", (_request, _response) => {
   const { title } = _request.params;
   const formData = _request.body;
@@ -110,7 +110,7 @@ app.post("/post/:title", (_request, _response) => {
   postData[postIndex].comments.unshift(newComment);
   _response.redirect(`/post/${title}`);
 });
-
+/* New post view */
 app.get("/create-post", (_request, _response) => {
   _response.render("createPostView", {
     postData: postData,
@@ -119,7 +119,7 @@ app.get("/create-post", (_request, _response) => {
     currentLink: "createpost",
   });
 });
-
+/* Create new blog */
 app.post("/create-post", (_request, _response) => {
   const formData = _request.body;
   let avatar = "";

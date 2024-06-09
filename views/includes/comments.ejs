@@ -20,10 +20,11 @@
       <section class="post-comment-container">
         <form class="comment-form" action="/post/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
           method="POST">
-          <label for="name">Name</label>
-          <input type="text" maxlength="20" id="name" name="name">
-          <label for="comment">Comment</label>
-          <textarea rows="4" maxlength="300" type="comment" id="comment" name="comment"></textarea>
+          <label for="name"></label>
+          <input type="text" maxlength="20" id="name" name="name" placeholder="Name here...">
+          <label for="comment"></label>
+          <textarea rows="4" maxlength="300" type="comment" id="comment" name="comment"
+            placeholder="Comment here..."></textarea>
           <button type="submit">SUBMIT COMMENT</button>
         </form>
       </section>

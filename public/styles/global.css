@@ -11,6 +11,11 @@
   scrollbar-width: none;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: var(--primaryColor);
+}
+
 :root {
   --primaryColor: rgba(0, 170, 255, 0.568);
   --secondaryColor: rgb(0, 92, 138);
