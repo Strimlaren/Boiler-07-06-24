@@ -1,9 +1,15 @@
 .home-container {
   display: flex;
-  flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 50px;
   max-width: 700px;
+}
+
+.home-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .post-container {
@@ -19,7 +25,6 @@
 }
 
 .detailed-title {
-
   color: var(--whiteColor);
 }
 
@@ -62,7 +67,7 @@
 
 .post-footer p {
   color: var(--whiteColor);
-  font-size: .7rem;
+  font-size: .9rem;
 }
 
 .highlight {
@@ -76,5 +81,6 @@
 @media (max-width: 710px) {
   .home-container {
     max-width: 400px;
+    flex-direction: column;
   }
 }

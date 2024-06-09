@@ -7,38 +7,52 @@
     <%- include("./includes/header.ejs") %>
 
       <main class="home-container">
-        <article class="post-container">
-          <div class="post-header">
-            <img src="<%= postData[postIndex].avatarLink %>" alt="avatar. duh..">
-            <div>
-              <h2 class="detailed-title">
-                <%= postData[postIndex].title %>
-              </h2>
-              <p class="post-header-metadata">Posted by: <span class="highlight">
-                  <%= postData[postIndex].postedBy %>
-                </span> @ <%= postData[postIndex].postedDate %>
+        <div class="home-left">
+          <article class="post-container">
+            <div class="post-header">
+              <img src="<%= postData[postIndex].avatarLink %>" alt="avatar. duh..">
+              <div>
+                <h2 class="detailed-title">
+                  <%= postData[postIndex].title %>
+                </h2>
+                <p class="post-header-metadata">Posted by: <span class="highlight">
+                    <%= postData[postIndex].postedBy %>
+                  </span> @ <%= postData[postIndex].postedDate %>
+                </p>
+              </div>
+            </div>
+            <div class="padding">
+              <p>
+                <%= postData[postIndex].postContent %>
               </p>
             </div>
-          </div>
-          <div class="padding">
-            <p>
-              <%= postData[postIndex].postContent %>
-            </p>
-          </div>
-          <div class="post-footer padding">
-            <p><span class="highlight">Tags:</span>
-              <%= postData[postIndex].tags.map(tag=> tag).join(', ') %>
-            </p>
-            <div class="post-footer-right">
-              <p><span class="highlight">Likes:</span>
-                <%= postData[postIndex].likes %>
+            <div class="post-footer padding">
+              <p><span class="highlight">Tags:</span>
+                <%= postData[postIndex].tags.map(tag=> tag).join(', ') %>
               </p>
-              <p><span class="highlight">Comments:</span>
-                <%= postData[postIndex].comments.length %>
-              </p>
+              <div class="post-footer-right">
+                <p><span class="highlight">Likes:</span>
+                  <%= postData[postIndex].likes %>
+                </p>
+                <p><span class="highlight">Comments:</span>
+                  <%= postData[postIndex].comments.length %>
+                </p>
+              </div>
             </div>
-          </div>
-        </article>
+
+          </article>
+          <!-- <section class="post-comment-container">
+            <form class="comment-form" action="/post/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
+              method="POST">
+              <label for="name">Name</label>
+              <input type="text" maxlength="20" id="name" name="name">
+              <label for="comment">Comment</label>
+              <textarea rows="4" maxlength="300" type="comment" id="comment" name="comment"></textarea>
+              <button type="submit">SUBMIT COMMENT</button>
+            </form>
+          </section> -->
+
+        </div>
 
         <%- include("./includes/comments.ejs") %>
 

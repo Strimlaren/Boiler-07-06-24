@@ -2,8 +2,7 @@ export let postData = [
   {
     id: 1,
     postedBy: "Jumi",
-    avatarLink:
-      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
+    avatarLink: "https://avatars.githubusercontent.com/u/96219257?s=64&v=4",
     postedDate: "2024-06-09",
     title: "Hur ChatGPT blir nästa Skynet",
     postContent:
@@ -35,8 +34,7 @@ export let postData = [
   {
     id: 2,
     postedBy: "Mirza",
-    avatarLink:
-      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
+    avatarLink: "https://avatars.githubusercontent.com/u/145326707?s=48&v=4",
     postedDate: "2024-06-07",
     title: "Fotboll borde stängas ner",
     postContent:
@@ -69,8 +67,7 @@ export let postData = [
   {
     id: 3,
     postedBy: "Mirza",
-    avatarLink:
-      "https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png",
+    avatarLink: "https://avatars.githubusercontent.com/u/145326707?s=48&v=4",
     postedDate: "2024-06-07",
     title: "Fotboll borde hyllas",
     postContent:
