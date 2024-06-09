@@ -1,15 +1,9 @@
 .home-container {
   display: flex;
+  flex-direction: column;
   gap: 1.2rem;
   margin-bottom: 50px;
   max-width: 700px;
-}
-
-.home-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
 }
 
 .post-container {

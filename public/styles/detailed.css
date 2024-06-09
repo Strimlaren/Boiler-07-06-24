@@ -82,12 +82,27 @@
   opacity: 1;
 }
 
+.home-container {
+  flex-direction: row;
+}
+
+.home-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
 @media (max-width: 710px) {
   .comments-container {
     align-items: center;
   }
 
-  .comment-wrapper {
-    width: 100%;
+  .home-container {
+    flex-direction: column;
   }
+
+  /* .comment-wrapper {
+    width: 100%;
+  } */
 }
