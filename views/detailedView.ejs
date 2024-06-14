@@ -10,32 +10,32 @@
         <div class="home-left">
           <article class="post-container">
             <div class="post-header">
-              <img src="<%= postData[postIndex].avatarLink %>" alt="avatar. duh..">
+              <img src="<%= blogpost.avatarLink %>" alt="avatar. duh..">
               <div>
                 <h2 class="detailed-title">
-                  <%= postData[postIndex].title %>
+                  <%= blogpost.title %>
                 </h2>
                 <p class="post-header-metadata">Posted by: <span class="highlight">
-                    <%= postData[postIndex].postedBy %>
-                  </span> @ <%= postData[postIndex].postedDate %>
+                    <%= blogpost.postedBy %>
+                  </span> @ <%= blogpost.postedDate %>
                 </p>
               </div>
             </div>
             <div class="padding">
               <p>
-                <%= postData[postIndex].postContent %>
+                <%= blogpost.postContent %>
               </p>
             </div>
             <div class="post-footer padding">
               <p><span class="highlight">Tags:</span>
-                <%= postData[postIndex].tags.map(tag=> tag).join(', ') %>
+                <%= blogpost.tags.map(tag=> tag).join(', ') %>
               </p>
               <div class="post-footer-right">
                 <p><span class="highlight">Likes:</span>
-                  <%= postData[postIndex].likes %>
+                  <%= blogpost.likes %>
                 </p>
                 <p><span class="highlight">Comments:</span>
-                  <%= postData[postIndex].comments.length %>
+                  <%= blogpost.comments.length %>
                 </p>
               </div>
             </div>

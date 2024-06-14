@@ -1,49 +1,42 @@
 <%- include("./includes/head.ejs") %>
-  <link rel="stylesheet" href="/styles/home.css">
-  </head>
+<link rel="stylesheet" href="/styles/home.css">
+</head>
 
-  <body>
-    <%- include("./includes/header.ejs") %>
+<body>
+  <%- include("./includes/header.ejs", { blogposts: blogposts }) %>
 
-      <main class="home-container">
-        <% for(let i=0; i < filteredPosts.length; i++) { %>
-          <article class="post-container">
-            <div class="post-header">
-              <img src="<%= filteredPosts[i].avatarLink %>" alt="avatar. duh..">
-              <div>
-                <a class="post-title-link"
-                  href="/blog/<%= filteredPosts[i].title.toLowerCase().replaceAll(/ /g, '-') %>">
-                  <h2 class="post-title">
-                    <%= filteredPosts[i].title %>
-                  </h2>
-                </a>
-                <p class="post-header-metadata">Posted by: <span class="highlight">
-                    <%= filteredPosts[i].postedBy %>
-                  </span> @ <%= filteredPosts[i].postedDate %>
-                </p>
-              </div>
-            </div>
-            <div class="padding">
-              <p>
-                <%= filteredPosts[i].postContent %>
+  <main class="home-container">
+    <% if (filteredPosts.length > 0) { %>
+      <% for(let i = 0; i < filteredPosts.length; i++) { %>
+        <article class="post-container">
+          <div class="post-header">
+            <img src="<%= filteredPosts[i].avatarLink %>" alt="avatar">
+            <div>
+              <a class="post-title-link" href="/blog/<%= filteredPosts[i].title.toLowerCase().replace(/ /g, '-') %>">
+                <h2 class="post-title"><%= filteredPosts[i].title %></h2>
+              </a>
+              <p class="post-header-metadata">Posted by: <span class="highlight">
+                  <%= filteredPosts[i].postedBy %>
+                </span> @ <%= filteredPosts[i].postedDate %>
               </p>
             </div>
-            <div class="post-footer padding">
-              <p><span class="highlight">Tags:</span>
-                <%= filteredPosts[i].tags.map(tag=> tag).join(', ') %>
-              </p>
-              <div class="post-footer-right">
-                <p><span class="highlight">Likes:</span>
-                  <%= filteredPosts[i].likes %>
-                </p>
-                <p><span class="highlight">Comments:</span>
-                  <%= filteredPosts[i].comments.length %>
-                </p>
-              </div>
+          </div>
+          <div class="padding">
+            <p><%= filteredPosts[i].postContent %></p>
+          </div>
+          <div class="post-footer padding">
+            <p><span class="highlight">Tags:</span> <%= filteredPosts[i].tags.join(', ') %></p>
+            <div class="post-footer-right">
+              <p><span class="highlight">Likes:</span> <%= filteredPosts[i].likes %></p>
+              <p><span class="highlight">Comments:</span> <%= filteredPosts[i].comments.length %></p>
             </div>
-          </article>
-          <% } %>
+          </div>
+        </article>
+      <% } %>
+    <% } else { %>
+      <p>No posts found with the tag "<%= pageTitle %>".</p>
+    <% } %>
+  </main>
 
-      </main>
-
-      <%- include("./includes/end.ejs") %>
+  <%- include("./includes/end.ejs") %>
+</body>

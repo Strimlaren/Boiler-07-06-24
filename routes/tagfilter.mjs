@@ -1,26 +1,32 @@
 import { Router } from "express";
+import Blogposts from "../models/blogpostsModel.js";
 
 const router = Router();
 
-import { postData } from "../public/data/postData.mjs";
-
 /* Filter posts by selected tag */
-router.get("/tag/:tagName", (_request, _response) => {
-  const { tagName } = _request.params;
+router.get("/tag/:tagName", async (req, res) => {
+  const { tagName } = req.params;
 
-  /* Lowercase all tags in each tags array before checking 
-  if tagName is included. */
-  const postsFilteredByTag = postData.filter((post) => {
-    return post.tags.map((tag) => tag.toLowerCase()).includes(tagName);
-  });
+  try {
+    // Fetch all blog posts from the database
+    const blogposts = await Blogposts.find();
 
-  _response.render("filteredView", {
-    postData: postData,
-    pageTitle: tagName,
-    allTags: _request.allTags,
-    filteredPosts: postsFilteredByTag,
-    currentLink: "tag",
-  });
+    // Filter posts by the selected tag
+    const postsFilteredByTag = blogposts.filter((post) => {
+      return post.tags.map((tag) => tag.toLowerCase()).includes(tagName.toLowerCase());
+    });
+
+    res.render("filteredView", {
+      blogposts: blogposts,
+      pageTitle: tagName,
+      allTags: req.allTags, // Assuming `allTags` is set somewhere in the request
+      filteredPosts: postsFilteredByTag,
+      currentLink: "tag",
+    });
+  } catch (error) {
+    console.error("Error fetching blog posts:", error.message);
+    res.status(500).json({ message: "Error fetching blog posts" });
+  }
 });
 
 export default router;
