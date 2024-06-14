@@ -5,45 +5,48 @@
   <body>
     <%- include("./includes/header.ejs") %>
 
-      <main class="home-container">
-        <% for(let i=0; i < postData.length; i++) { %>
-          <article class="post-container">
-
-            <div class="post-header">
-              <img src="<%= postData[i].avatarLink %>" alt="avatar. duh..">
-              <div>
-                <a class="post-title-link" href="/blog/<%= postData[i].title.toLowerCase().replaceAll(/ /g, '-') %>">
-                  <h2 class="post-title">
-                    <%= postData[i].title %>
-                  </h2>
-                </a>
-                <p class="post-header-metadata">Posted by: <span class="highlight">
-                    <%= postData[i].postedBy %>
-                  </span> @ <%= postData[i].postedDate %>
-                </p>
-              </div>
-
-            </div>
-            <div class="padding">
-              <p>
-                <%= postData[i].postContent %>
-              </p>
-            </div>
-            <div class="post-footer padding">
-              <p><span class="highlight">Tags:</span>
-                <%= postData[i].tags.map(tag=> tag).join(', ') %>
-              </p>
-              <div class="post-footer-right">
-                <p><span class="highlight">Likes:</span>
-                  <%= postData[i].likes %>
-                </p>
-                <p><span class="highlight">Comments:</span>
-                  <%= postData[i].comments.length %>
-                </p>
-              </div>
-            </div>
-          </article>
-          <% } %>
-      </main>
+    <main class="home-container">
+      <% if (blogposts && blogposts.length > 0) { %>
+          <% blogposts.forEach(blogpost => { %>
+              <article class="post-container">
+                  <div class="post-header">
+                      <img src="<%= blogpost.avatarLink %>" alt="avatar">
+                      <div>
+                          <a class="post-title-link" href="/blog/<%= blogpost._id %>">
+                              <h2 class="post-title">
+                                  <%= blogpost.title %>
+                              </h2>
+                          </a>
+                          <p class="post-header-metadata">Posted by: <span class="highlight">
+                              <%= blogpost.postedBy %>
+                              </span> @ <%= blogpost.postedDate %>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="padding">
+                      <p>
+                          <%= blogpost.postContent %>
+                      </p>
+                  </div>
+                  <div class="post-footer padding">
+                      <p><span class="highlight">Tags:</span>
+                          <%= blogpost.tags.map(tag => tag).join(', ') %>
+                      </p>
+                      <div class="post-footer-right">
+                          <p><span class="highlight">Likes:</span>
+                              <%= blogpost.likes %>
+                          </p>
+                          <p><span class="highlight">Comments:</span>
+                              <%= blogpost.comments.length %>
+                          </p>
+                      </div>
+                  </div>
+              </article>
+          <% }); %>
+      <% } else { %>
+          <p>No blog posts found.</p>
+      <% } %>
+  </main>
+  
 
       <%- include("./includes/end.ejs") %>

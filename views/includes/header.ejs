@@ -6,16 +6,31 @@
       <li><a class="link <%= currentLink === 'createblog' ? 'active-link' : '' %>" href="/blog/new">New Post</a></li>
     </ul>
   </nav>
-  <% if(currentLink==="home" || currentLink==="tag" || currentLink==="detail" ) { %>
+  <% if(currentLink === 'home' || currentLink === 'tag' || currentLink === 'detail') { %>
     <aside>
       <ul class="tag-navigation">
-        <% for(let i=0; i < allTags.length; i++) { %>
-          <li><a href="/tag/<%= allTags[i].toLowerCase() %>"
-              class="tag-link <%= pageTitle.toLowerCase() === allTags[i].toLowerCase() ? 'active-link' : '' %>">
-              <%= allTags[i] %>
-            </a></li>
-          <% } %>
+        <% if (Array.isArray(blogposts)) { %>
+          <% blogposts.forEach(blogpost => { %>
+            <% blogpost.tags.forEach(tag => { %>
+              <li>
+                <a href="/tag/<%= tag.toLowerCase() %>"
+                   class="tag-link <%= pageTitle.toLowerCase() === tag.toLowerCase() ? 'active-link' : '' %>">
+                  <%= tag %>
+                </a>
+              </li>
+            <% }); %>
+          <% }); %>
+        <% } else if (blogposts && blogposts.tags) { %>
+          <% blogposts.tags.forEach(tag => { %>
+            <li>
+              <a href="/tag/<%= tag.toLowerCase() %>"
+                 class="tag-link <%= pageTitle.toLowerCase() === tag.toLowerCase() ? 'active-link' : '' %>">
+                <%= tag %>
+              </a>
+            </li>
+          <% }); %>
+        <% } %>
       </ul>
     </aside>
-    <% } %>
+  <% } %>
 </header>

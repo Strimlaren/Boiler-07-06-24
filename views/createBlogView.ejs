@@ -1,32 +1,32 @@
 <%- include("./includes/head.ejs") %>
-  <link rel="stylesheet" href="/styles/createblog.css">
-  </head>
+<link rel="stylesheet" href="/styles/createblog.css">
+</head>
 
-  <body>
-    <%- include("./includes/header.ejs") %>
+<body>
+  <%- include("./includes/header.ejs") %>
 
-      <section class="new-post-container">
-        <form method="POST" action="/blog/new">
+  <section class="new-post-container">
+    <form method="POST" action="/blog/new">
 
-          <label for="postedby">Posted By:</label><br>
-          <input type="text" id="postedby" name="postedby"><br>
+      <label for="postedBy">Posted By:</label><br>
+      <input type="text" id="postedBy" name="postedBy" required><br>
 
-          <label for="avatarlink">Avatar Link:</label><br>
-          <input type="text" id="avatarlink" name="avatarlink"
-            placeholder="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png"><br>
+      <label for="avatarLink">Avatar Link:</label><br>
+      <input type="text" id="avatarLink" name="avatarLink" placeholder="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Picture.png"><br>
 
-          <label for="title">Blog Title:</label><br>
-          <input type="text" id="title" name="title"><br>
+      <label for="title">Blog Title:</label><br>
+      <input type="text" id="title" name="title" required><br>
 
-          <label for="blogcontent">Blog post text:</label><br>
-          <textarea type="text" col="40" row="50" id="blogcontent" name="blogcontent"></textarea><br>
+      <label for="postContent">Blog post text:</label><br>
+      <textarea id="postContent" name="postContent" required></textarea><br>
 
-          <label for="tags">Tags:</label><br>
-          <input type="text" id="tags" name="tags" placeholder="tag1 tag2 tag3 ..."><br>
+      <label for="tags">Tags:</label><br>
+      <input type="text" id="tags" name="tags" placeholder="tag1 tag2 tag3 ..."><br>
 
-          <button type="submit">SUBMIT NEW BLOGPOST</button>
+      <button type="submit">SUBMIT NEW BLOGPOST</button>
 
-        </form>
-      </section>
+    </form>
+  </section>
 
-      <%- include("./includes/end.ejs") %>
+  <%- include("./includes/end.ejs") %>
+</body>

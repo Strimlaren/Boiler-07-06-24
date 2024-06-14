@@ -1,24 +1,24 @@
 <aside class="comments-container">
-  <% for(let i=0; i < postData[postIndex].comments.length; i++) { %>
+  <% for(let i=0; i < blogpost.comments.length; i++) { %>
 
     <section class="comment-wrapper">
       <div class="comment-header">
         <h3>
-          On <%= postData[postIndex].comments[i].postedDate %>
+          On <%= blogpost.comments[i].postedDate %>
             <span class="highlight">
-              <%= postData[postIndex].comments[i].postedBy %>
+              <%= blogpost.comments[i].postedBy %>
             </span> said:
         </h3>
       </div>
       <p class="comment-body">
-        <%= postData[postIndex].comments[i].commentContent %>
+        <%= blogpost.comments[i].commentContent %>
       </p>
     </section>
 
     <% } %>
 
       <section class="post-comment-container">
-        <form class="comment-form" action="/blog/<%= postData[postIndex].title.toLowerCase().replace(/ /g, '-') %>"
+        <form class="comment-form" action="/blog/<%= blogpost._id %>"
           method="POST">
           <label for="name"></label>
           <input type="text" maxlength="20" id="name" name="name" placeholder="Name here...">
